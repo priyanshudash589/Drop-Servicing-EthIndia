@@ -65,7 +65,7 @@ export default function Profile() {
         </CardHeader>
         <CardBody className="text-center">
           <Avatar
-            src={profileData.avatar}
+           src={profileData.avatar}
             alt="avatar"
             size="xxl"
             className="ring-4 ring-purple-500 border-2 border-black -mt-20 mb-4"

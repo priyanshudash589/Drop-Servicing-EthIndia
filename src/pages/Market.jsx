@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import navbar from '@material-tailwind/react';
 import {
   Card,
   CardHeader,
@@ -11,8 +10,8 @@ import {
   Tooltip,
 } from "@material-tailwind/react";
 
-
 // Mock data for jobs and users (unchanged)
+
 const jobsData = [
   { id: 1, name: "DeFi Project", company: "CryptoFin", wallet: "0x1234...5678", jobProfile: "Solidity Developer", price: "5 ETH", teamSize: 3 },
   { id: 2, name: "NFT Marketplace", company: "ArtChain", wallet: "0xabcd...efgh", jobProfile: "Frontend Developer", price: "3 ETH", teamSize: 2 },
@@ -31,7 +30,7 @@ const usersData = [
 
 const TABLE_HEAD = ["ID", "Name", "Company", "Wallet", "Job Profile", "Price", "Team Size", ""];
 
-export default function Marketplace() {
+export default function ClientMarket() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const userListRef = useRef(null);
 
@@ -39,23 +38,25 @@ export default function Marketplace() {
     const userList = userListRef.current;
     if (!userList) return;
 
-    const scrollHeight = userList.scrollHeight;
-    const clientHeight = userList.clientHeight;
-    const maxScroll = scrollHeight - clientHeight;
+    const handleScroll = () => {
+      const scrollHeight = userList.scrollHeight;
+      const clientHeight = userList.clientHeight;
+      const maxScroll = scrollHeight - clientHeight;
 
-    const scrollInterval = setInterval(() => {
       setScrollPosition((prevPosition) => {
         const newPosition = prevPosition + 1;
         return newPosition > maxScroll ? 0 : newPosition;
       });
-    }, 50);
+    };
 
+    const scrollInterval = setInterval(handleScroll, 50);
     return () => clearInterval(scrollInterval);
   }, []);
 
   useEffect(() => {
-    if (userListRef.current) {
-      userListRef.current.scrollTop = scrollPosition;
+    const userList = userListRef.current;
+    if (userList) {
+      userList.scrollTop = scrollPosition;
     }
   }, [scrollPosition]);
 
@@ -75,10 +76,10 @@ export default function Marketplace() {
             </div>
             <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
               <Button variant="outlined" color="purple" size="sm">
-                view all
+                View All
               </Button>
               <Button className="bg-purple-500" size="sm">
-                Add job
+                Add Job
               </Button>
             </div>
           </div>
@@ -191,21 +192,14 @@ export default function Marketplace() {
           </Typography>
         </CardHeader>
         <CardBody className="h-[calc(100vh-200px)] overflow-hidden">
-          <div 
-            ref={userListRef}
-            className="h-full overflow-hidden"
-          >
+          <div ref={userListRef} className="h-full overflow-hidden">
             <ul className="divide-y divide-gray-700">
               {[...usersData, ...usersData].map((user, index) => (
                 <li key={`${user.id}-${index}`} className="py-3 sm:py-4">
                   <div className="flex items-center space-x-4">
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-medium text-white truncate">
-                        {user.name}
-                      </p>
-                      <p className="text-sm text-gray-400 truncate">
-                        {user.contributionType}
-                      </p>
+                      <p className="text-sm font-medium text-white truncate">{user.name}</p>
+                      <p className="text-sm text-gray-400 truncate">{user.contributionType}</p>
                     </div>
                     <div className="inline-flex items-center text-base font-semibold text-purple-400">
                       {user.earnedTokens} tokens
@@ -220,4 +214,3 @@ export default function Marketplace() {
     </div>
   );
 }
-

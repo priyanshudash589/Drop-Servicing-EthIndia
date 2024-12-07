@@ -8,6 +8,10 @@ import SearchProfile from "./pages/SearchProfile";
 import Signup from "./pages/Signup";
 import SplitLogin from "./pages/SplitLogin";
 import ClientMarket from "./pages/clientmarket";
+import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
+import LoginForm from "./pages/Clientlogin";
+import Clientlogin from "./pages/Clientlogin";
+import CreateOffer from "./pages/Createoffer";
 
 function App() {
   return (
@@ -21,6 +25,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/search-profile" element={<SearchProfile />} />
           <Route path="/client-market" element={<ClientMarket />} />
+          <Route path="/client-login" element={<Clientlogin/>} />
+          <Route path="/create-offer" element={<CreateOffer/>} />
         </Routes>
       </div>
   );
