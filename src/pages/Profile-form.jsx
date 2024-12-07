@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Chip, Input, Textarea } from "@material-tailwind/react";
+import navbar from '../components/Navbar';
 
 export default function ProfileForm() {
   const [skills, setSkills] = useState([]);

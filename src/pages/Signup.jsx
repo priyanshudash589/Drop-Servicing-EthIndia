@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Checkbox } from "@material-tailwind/react";
+import navbar from '../components/Navbar';
 
 export default function Signup() {
   return (

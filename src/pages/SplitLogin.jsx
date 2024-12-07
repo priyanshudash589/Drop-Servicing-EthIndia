@@ -1,9 +1,11 @@
 import React from 'react';
 import { Button } from "@material-tailwind/react";
+import navbar from '../components/Navbar';
 
 export default function SplitLogin() {
   return (
     <div className="flex min-h-screen bg-black text-white">
+      
       {/* Freelancer Side */}
       <div className="flex w-1/2 flex-col items-center justify-center px-8 text-center">
         <h1 className="mb-4 text-6xl font-bold">

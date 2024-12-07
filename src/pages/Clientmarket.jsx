@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import navbar from '@material-tailwind/react';
 import {
   Card,
   CardHeader,
@@ -31,7 +30,7 @@ const usersData = [
 
 const TABLE_HEAD = ["ID", "Name", "Company", "Wallet", "Job Profile", "Price", "Team Size", ""];
 
-export default function Marketplace() {
+export default function ClientMarket() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const userListRef = useRef(null);
 
@@ -184,7 +183,7 @@ export default function Marketplace() {
       </Card>
 
       {/* User Earnings Panel */}
-      <Card className="h-full w-full lg:w-1/4 bg-gray-900 text-white">
+      {/* <Card className="h-full w-full lg:w-1/4 bg-gray-900 text-white">
         <CardHeader floated={false} shadow={false} className="rounded-none bg-gray-900">
           <Typography variant="h6" color="white">
             Recent Earnings
@@ -216,7 +215,7 @@ export default function Marketplace() {
             </ul>
           </div>
         </CardBody>
-      </Card>
+      </Card> */}
     </div>
   );
 }

@@ -227,7 +227,7 @@ function NavList() {
   );
 }
  
-export function ComplexNavbar() {
+export default function ComplexNavbar() {
   const [isNavOpen, setIsNavOpen] = React.useState(false);
  
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
