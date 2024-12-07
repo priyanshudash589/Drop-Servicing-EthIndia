@@ -25,6 +25,8 @@ import {
   RocketLaunchIcon,
   Bars2Icon,
 } from "@heroicons/react/24/solid";
+
+
  
 // profile menu component
 const profileMenuItems = [
@@ -92,9 +94,10 @@ function ProfileMenu() {
               }`}
             >
               {React.createElement(icon, {
-                className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
-                strokeWidth: 2,
-              })}
+  className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
+  strokeWidth: 2,
+})}
+
               <Typography
                 as="span"
                 variant="small"
@@ -149,7 +152,7 @@ function NavListMenu() {
   return (
     <React.Fragment>
       <Menu allowHover open={isMenuOpen} handler={setIsMenuOpen}>
-        <MenuHandler>
+        {/* <MenuHandler>
           <Typography as="a" href="#" variant="small" className="font-normal">
             <MenuItem className="hidden items-center gap-2 font-medium text-blue-gray-900 lg:flex lg:rounded-full">
               <Square3Stack3DIcon className="h-[18px] w-[18px] text-blue-gray-500" />{" "}
@@ -162,7 +165,7 @@ function NavListMenu() {
               />
             </MenuItem>
           </Typography>
-        </MenuHandler>
+        </MenuHandler> */}
         <MenuList className="hidden w-[36rem] grid-cols-7 gap-3 overflow-visible lg:grid">
           <Card
             color="blue"
@@ -190,18 +193,15 @@ function NavListMenu() {
  
 // nav list component
 const navListItems = [
+  
   {
+    label: "Home",
+    icon: UserCircleIcon,
+  },{
     label: "Account",
     icon: UserCircleIcon,
-  },
-  {
-    label: "Blocks",
-    icon: CubeTransparentIcon,
-  },
-  {
-    label: "Docs",
-    icon: CodeBracketSquareIcon,
-  },
+  }
+  
 ];
  
 function NavList() {
@@ -240,15 +240,17 @@ export default function ComplexNavbar() {
   }, []);
  
   return (
-    <Navbar className="mx-auto max-w-screen-xl p-2 lg:rounded-full lg:pl-6">
-      <div className="relative mx-auto flex items-center justify-between text-blue-gray-900">
-        <Typography
+    <div className="w-full h-fit pt-3">
+
+    <Navbar className="mx-auto max-w-screen-xl p-2 lg:rounded-full lg:pl-6 ">
+      <div className="relative mx-auto flex items-center justify-between text-blue-gray-900 ">
+        {/* <Typography
           as="a"
           href="#"
           className="mr-4 ml-2 cursor-pointer py-1.5 font-medium"
         >
           Material Tailwind
-        </Typography>
+        </Typography> */}
         <div className="hidden lg:block">
           <NavList />
         </div>
@@ -262,14 +264,15 @@ export default function ComplexNavbar() {
           <Bars2Icon className="h-6 w-6" />
         </IconButton>
  
-        <Button size="sm" variant="text">
+        {/* <Button size="sm" variant="text">
           <span>Log In</span>
-        </Button>
+        </Button> */}
         <ProfileMenu />
       </div>
       <Collapse open={isNavOpen} className="overflow-scroll">
         <NavList />
       </Collapse>
     </Navbar>
+    </div>
   );
 }
