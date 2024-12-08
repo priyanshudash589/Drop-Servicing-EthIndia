@@ -14,13 +14,15 @@ import Clientlogin from "./pages/Clientlogin";
 import CreateOffer from "./pages/Createoffer";
 import JobDetails from "./pages/Jobdetails";
 import ResponseList from "./pages/ResponseList";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
       <div className="bg-black w-screen h-screen">
         <ComplexNavbar />
         <Routes>
-          <Route path="/" element={<SplitLogin />} />
+        <Route path="/" element={<LandingPage />} />
+          <Route path="/sp" element={<SplitLogin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile-form" element={<ProfileForm />} />
           <Route path="/marketplace" element={<Marketplace />} />
@@ -31,6 +33,7 @@ function App() {
           <Route path="/create-offer" element={<CreateOffer/>} />
           <Route path="/Job-details" element={<JobDetails/>} />
           <Route path="/ResponseList" element={<ResponseList/>} />
+          
         </Routes>
       </div>
   );
