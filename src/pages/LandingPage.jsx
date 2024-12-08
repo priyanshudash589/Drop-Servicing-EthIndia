@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 const COMPANIES = [
-  'Stellar Solutions', 'Nova Tech', 'Quantum Systems', 'Orbit Dynamics',
-  'Space Industries', 'Galaxy Corp', 'Nebula Networks', 'Cosmic Data',
-  'Star Enterprise', 'Eclipse Tech',
+  'Base', 'Anon Aadhaar', 'Base', 'Anon Aadhaar',
+  'Base', 'Anon Aadhaar', 'Base', 'Anon Aadhaar',
+  'Base', 'Anon Aadhaar',
 ];
 
 function LandingPage() {
